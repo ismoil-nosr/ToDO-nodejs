@@ -1,0 +1,23 @@
+<div class="box" id="heading">
+    <h1>{{ curDate }}</h1>
+</div>
+
+{{#if system_message}}
+    {{> notify }}
+{{/if}}
+
+<div class="box">
+    {{#each items}}
+        <form action="/{{ this._id }}?_method=DELETE" method="post">
+            <div class="item">
+                <input type="checkbox" onchange="this.form.submit()">
+                <p>{{this.content}}</p>
+            </div>
+        </form>
+    {{/each}}
+
+    <form action="/" class="item" method="post">
+        <input type="text" name="content" id="" placeholder="type smhthng..." >
+        <button type="submit">+</button>
+    </form>
+</div>
