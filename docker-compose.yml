@@ -11,12 +11,12 @@ services:
     restart: always
     depends_on:
       - mongodb
-    ports:
-      - "80:3000"
-    networks:
-      - expressjs
     env_file: 
       - .env
+    ports:
+      - "80:${APP_PORT}"
+    networks:
+      - expressjs
     environment:
       NODE_ENV=${NODE_ENV}
       APP_PORT=${APP_PORT}
